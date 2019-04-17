@@ -10,14 +10,14 @@ const Visibility = props => {
                 if (visibilityConditions >= 5) {
                     return (
                         <div key={idx} className="visibility-no-issues">
-                            <h2>Visibility is {visibilityConditions}sm.</h2>
+                            <h2>Visibility: {visibilityConditions}sm</h2>
                         </div>
                     )
                 }
                 else {
                     return (
                         <div key={idx} className="visibility-issues">
-                            <h2 className="warning">Visibility is {visibilityConditions}sm.</h2>
+                            <h2 className="warning">Visibility: {visibilityConditions}sm</h2>
                         </div>
                     )
                 }

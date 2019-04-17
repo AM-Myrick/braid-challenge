@@ -11,7 +11,7 @@ const Temperature = props => {
                 let fahrenheit = temperature * 1.8 + 32;
                 return (
                     <div key={idx} className="temperature-data">
-                        <h2>{temperature}°C/{Math.ceil(fahrenheit)}°F</h2>
+                        <h2>Temperature: {temperature}°C/{Math.ceil(fahrenheit)}°F</h2>
                     </div>
                 )
             })}
