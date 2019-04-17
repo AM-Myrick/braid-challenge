@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get("http://localhost:9001/weather-api")
+    .get("https://braid-weather.herokuapp.com/weather-api")
     .then(res => {
       let cityNames = res.data[res.data.length - 1];
       let cityNamesDict = {}
