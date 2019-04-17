@@ -25,20 +25,23 @@ server.get("/weather-api", (req, res) => {
         .get("https://wx.wearebraid.com/stations")
         .then(response => {
             for (let data of response.data) {
-                weatherStations.push(data["Station"])
+                let obj = {};
+                obj[data["Station"]] = data["City"];
+                weatherStations.push(obj)
             }
             for (let station of weatherStations) {
                 axios
-                    .get(`https://wx.wearebraid.com/stations/${station}`)
+                    .get(`https://wx.wearebraid.com/stations/${Object.keys(station)[0]}`)
                     .then(response => {
                         let obj = {};
-                        obj[station] = response.data;
+                        obj[Object.keys(station)[0]] = response.data;
                         weatherData.push(obj);
                         if (weatherData.length === weatherStations.length) {
+                            weatherData.push(weatherStations);
                             res.status(200).send(weatherData);
                         }
                     })
-                    .catch(err => console.log(err, "could not access weather API"))
+                    .catch(err => console.log("could not access weather API"))
             }
         })
         .catch(err => console.log(err, "could not access weather API"))
