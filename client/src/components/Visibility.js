@@ -1,23 +1,23 @@
 import React from 'react';
+import "./Visibility.css";
 
 const Visibility = props => {
     return (
         props.weatherData ?
-        <div>
+        <div className="visibility">
             {props.weatherData.map((station, idx) => {
-                let weatherStation = Object.keys(station)[0];
                 let visibilityConditions = Object.values(station)[0]["visibility"]["value"];
                 if (visibilityConditions >= 5) {
                     return (
                         <div key={idx} className="visibility-no-issues">
-                            <p>{props.cityDict[weatherStation]} - Visibility is {visibilityConditions}sm.</p>
+                            <h2>Visibility is {visibilityConditions}sm.</h2>
                         </div>
                     )
                 }
                 else {
                     return (
                         <div key={idx} className="visibility-issues">
-                            <p>{props.cityDict[weatherStation]} - Visibility is {visibilityConditions}sm.</p>
+                            <h2>Visibility is {visibilityConditions}sm.</h2>
                         </div>
                     )
                 }

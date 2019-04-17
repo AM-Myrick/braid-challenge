@@ -13,7 +13,7 @@ const CloudCover = props => {
                     return (
                         <div key={idx} className="cloud-cover-no-issues">
                             <h1>{props.cityDict[weatherStation]}</h1>
-                            <p>Clear Skies!</p>
+                            <h2>Clear Skies!</h2>
                         </div>
                     )
                 }
@@ -21,7 +21,7 @@ const CloudCover = props => {
                     return (
                         <div key={idx} className="cloud-cover-issues">
                             <h1>{props.cityDict[weatherStation]}</h1>
-                            <p>{cloudConditions[0].type} at altitude {cloudConditions[0].altitude} and {cloudConditions[1].type} at altitude {cloudConditions[1].altitude}</p>
+                            <h2>{cloudConditions[0].type} at altitude {cloudConditions[0].altitude} and {cloudConditions[1].type} at altitude {cloudConditions[1].altitude}</h2>
                         </div>
                     )
                 }
@@ -29,7 +29,7 @@ const CloudCover = props => {
                     return (
                         <div key={idx} className="cloud-cover-issues">
                             <h1>{props.cityDict[weatherStation]}</h1>
-                            <p>{cloudConditions.type} at altitude {cloudConditions.altitude}</p>
+                            <h2>{cloudConditions.type} at altitude {cloudConditions.altitude}</h2>
                         </div>
                     )
                 }

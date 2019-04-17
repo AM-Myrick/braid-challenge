@@ -1,16 +1,17 @@
 import React from 'react';
+import "./Wind.css";
 
 const Wind = props => {
     return (
         props.weatherData ?
-        <div>
+        <div className="wind">
             {props.weatherData.map((station, idx) => {
                 let weatherStation = Object.keys(station)[0];
                 let windSpeed = Object.values(station)[0]["wind_speed"]["value"];
                 if (windSpeed === 0) {
                     return (
                         <div key={idx} className="no-wind">
-                            <p>{props.cityDict[weatherStation]} - No Wind!</p>
+                            <h2>No Wind!</h2>
                         </div>
                     )
                 }
@@ -18,8 +19,8 @@ const Wind = props => {
                     let windDirection = Object.values(station)[0]["wind_direction"]["repr"];
                     if (windDirection === "VRB") {
                         return (
-                            <div key={idx} className="wind-issues">
-                                <p>{props.cityDict[weatherStation]} - Wind Speed is {windSpeed}kt in variable directions</p>
+                            <div key={idx} className="wind-variable">
+                                <h2>Wind Speed: {windSpeed}kt in variable directions</h2>
                             </div>
                         )
                     }
@@ -55,7 +56,7 @@ const Wind = props => {
                         }
                         return (
                             <div key={idx} className="wind-issues">
-                                <p>{props.cityDict[weatherStation]} - Wind Speed is {windSpeed}kt from the {windDirection}</p>
+                                <h2>Wind Speed: {windSpeed}kt from the {windDirection}</h2>
                             </div>
                         )
                     }
