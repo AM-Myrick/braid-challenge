@@ -12,7 +12,7 @@ const CloudCover = props => {
                 if (cloudConditions.length === 0) {
                     return (
                         <div key={idx} className="cloud-cover-no-issues">
-                            <h2>{props.cityDict[weatherStation]}</h2>
+                            <h3>{props.cityDict[weatherStation]}</h3>
                             <h2>Clear Skies!</h2>
                         </div>
                     )
@@ -20,7 +20,7 @@ const CloudCover = props => {
                 else if (cloudConditions.length > 1) {
                     return (
                         <div key={idx} className="cloud-cover-issues">
-                            <h2>{props.cityDict[weatherStation]}</h2>
+                            <h3>{props.cityDict[weatherStation]}</h3>
                             <h2 className="warning">{cloudConditions[0].type} at {cloudConditions[0].altitude}ft<br/>and<br/>{cloudConditions[1].type} at {cloudConditions[1].altitude}ft</h2>
                         </div>
                     )
@@ -28,7 +28,7 @@ const CloudCover = props => {
                 else {
                     return (
                         <div key={idx} className="cloud-cover-issues">
-                            <h2>{props.cityDict[weatherStation]}</h2>
+                            <h3>{props.cityDict[weatherStation]}</h3>
                             <h2>{cloudConditions.type} at {cloudConditions.altitude}ft</h2>
                         </div>
                     )
