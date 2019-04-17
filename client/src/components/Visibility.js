@@ -17,7 +17,7 @@ const Visibility = props => {
                 else {
                     return (
                         <div key={idx} className="visibility-issues">
-                            <h2>Visibility is {visibilityConditions}sm.</h2>
+                            <h2 className="warning">Visibility is {visibilityConditions}sm.</h2>
                         </div>
                     )
                 }

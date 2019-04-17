@@ -19,7 +19,7 @@ const Wind = props => {
                     if (windDirection === "VRB") {
                         return (
                             <div key={idx} className="wind-variable">
-                                <h2>Wind Speed: {windSpeed}kt in variable directions</h2>
+                                <h2>Wind Speed: {windSpeed}kt variable directions</h2>
                             </div>
                         )
                     }
@@ -55,7 +55,7 @@ const Wind = props => {
                         }
                         return (
                             <div key={idx} className="wind-issues">
-                                <h2>Wind Speed: {windSpeed}kt from the {windDirection}</h2>
+                                <h2>Wind Speed: {windSpeed}kt {windDirection}</h2>
                             </div>
                         )
                     }

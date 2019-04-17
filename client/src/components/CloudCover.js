@@ -29,7 +29,7 @@ const CloudCover = props => {
                     return (
                         <div key={idx} className="cloud-cover-issues">
                             <h3>{props.cityDict[weatherStation]}</h3>
-                            <h2>{cloudConditions.type} at {cloudConditions.altitude}ft</h2>
+                            <h2 className="warning">{cloudConditions.type} at {cloudConditions.altitude}ft</h2>
                         </div>
                     )
                 }
