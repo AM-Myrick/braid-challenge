@@ -26,7 +26,7 @@ server.get("/weather-api", (req, res) => {
         .then(response => {
             for (let data of response.data) {
                 let obj = {};
-                obj[data["Station"]] = data["City"];
+                obj[data["Station"]] = `${data["City"]}, ${data["State"]}`;
                 weatherStations.push(obj)
             }
             for (let station of weatherStations) {
