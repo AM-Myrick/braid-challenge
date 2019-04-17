@@ -7,6 +7,7 @@ const Temperature = props => {
         <div className="temperature">
             {props.weatherData.map((station, idx) => {
                 let temperature = Object.values(station)[0]["temperature"]["value"];
+                // converts celcius temperature to fahrenheit
                 let fahrenheit = temperature * 1.8 + 32;
                 return (
                     <div key={idx} className="temperature-data">

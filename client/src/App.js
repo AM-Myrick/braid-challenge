@@ -23,10 +23,12 @@ class App extends Component {
       let cityNamesDict = {}
 
       for (let city of cityNames) {
+        // creates a lookup dictionary for city names
         cityNamesDict[Object.keys(city)[0]] = Object.values(city)[0];
       }
 
       this.setState({cities: cityNamesDict})
+      // removes the array of city stations and names since they are no longer needed
       res.data.pop();
       this.setState({weather: res.data})
     })
@@ -37,9 +39,9 @@ class App extends Component {
     return (
       <div className="App">
         <CloudCover weatherData={this.state.weather} cityDict={this.state.cities} />
-        <Wind weatherData={this.state.weather} cityDict={this.state.cities} />
-        <Visibility weatherData={this.state.weather} cityDict={this.state.cities} />
-        <Temperature weatherData={this.state.weather} cityDict={this.state.cities} />
+        <Wind weatherData={this.state.weather} />
+        <Visibility weatherData={this.state.weather} />
+        <Temperature weatherData={this.state.weather} />
       </div>
     );
   }

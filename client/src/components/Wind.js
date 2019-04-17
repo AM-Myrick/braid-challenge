@@ -10,7 +10,7 @@ const Wind = props => {
                 if (windSpeed === 0) {
                     return (
                         <div key={idx} className="no-wind">
-                            <h2>No Wind!</h2>
+                            <h2>Wind Speed: 0kt</h2>
                         </div>
                     )
                 }
