@@ -47,4 +47,4 @@ server.get("/weather-api", (req, res) => {
         .catch(err => console.log(err, "could not access weather API"))
 })
 
-server.listen(9001, () => console.log(`\n=== Web API Listening on http://localhost:${port} ===\n`));
+server.listen(port, () => console.log(`\n=== Web API Listening on http://localhost:${port} ===\n`));
