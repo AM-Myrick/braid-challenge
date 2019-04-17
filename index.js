@@ -29,6 +29,7 @@ server.get("/weather-api", (req, res) => {
                 obj[data["Station"]] = `${data["City"]}, ${data["State"]}`;
                 weatherStations.push(obj)
             }
+            // does a get request for all of the stations the API returned and adds that data to an array
             for (let station of weatherStations) {
                 axios
                     .get(`https://wx.wearebraid.com/stations/${Object.keys(station)[0]}`)
@@ -36,6 +37,7 @@ server.get("/weather-api", (req, res) => {
                         let obj = {};
                         obj[Object.keys(station)[0]] = response.data;
                         weatherData.push(obj);
+                        // once all the data has been retrieved for each station, a response will be sent
                         if (weatherData.length === weatherStations.length) {
                             weatherData.push(weatherStations);
                             res.status(200).send(weatherData);
