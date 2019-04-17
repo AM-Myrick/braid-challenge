@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CloudCover from "./components/CloudCover";
+import Wind from "./components/Wind";
 import axios from "axios";
 import './App.css';
 
@@ -18,7 +19,7 @@ class App extends Component {
     .then(res => {
       let cityNames = res.data[res.data.length - 1];
       let cityNamesDict = {}
-      
+
       for (let city of cityNames) {
         cityNamesDict[Object.keys(city)[0]] = Object.values(city)[0];
       }
@@ -34,6 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <CloudCover weatherData={this.state.weather} cityDict={this.state.cities} />
+        <Wind weatherData={this.state.weather} cityDict={this.state.cities} />
       </div>
     );
   }

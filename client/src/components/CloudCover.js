@@ -4,27 +4,27 @@ const CloudCover = props => {
     return (
         props.weatherData ?
         <div>
-            {props.weatherData.map(station => {
+            {props.weatherData.map((station, idx) => {
                 let weatherStation = Object.keys(station)[0];
                 let cloudConditions = Object.values(station)[0]["clouds"];
-                console.log(cloudConditions)
+                console.log(station)
                 if (cloudConditions.length === 0) {
                     return (
-                        <div className="cloud-cover-no-issues">
+                        <div key={idx} className="cloud-cover-no-issues">
                             <p>{props.cityDict[weatherStation]} - Clear Skies!</p>
                         </div>
                     )
                 }
                 else if (cloudConditions.length > 1) {
                     return (
-                        <div className="cloud-cover-issues">
+                        <div key={idx} className="cloud-cover-issues">
                             <p>{props.cityDict[weatherStation]} - {cloudConditions[0].type} at altitude {cloudConditions[0].altitude} and {cloudConditions[1].type} at altitude {cloudConditions[1].altitude}</p>
                         </div>
                     )
                 }
                 else {
                     return (
-                        <div className="cloud-cover-issues">
+                        <div key={idx} className="cloud-cover-issues">
                             <p>{props.cityDict[weatherStation]} - {cloudConditions.type} at altitude {cloudConditions.altitude}</p>
                         </div>
                     )
