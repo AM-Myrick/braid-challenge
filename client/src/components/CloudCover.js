@@ -1,9 +1,10 @@
 import React from 'react';
+import "./CloudCover.css";
 
 const CloudCover = props => {
     return (
         props.weatherData ?
-        <div>
+        <div className="cloud-cover">
             {props.weatherData.map((station, idx) => {
                 let weatherStation = Object.keys(station)[0];
                 let cloudConditions = Object.values(station)[0]["clouds"];
@@ -11,21 +12,24 @@ const CloudCover = props => {
                 if (cloudConditions.length === 0) {
                     return (
                         <div key={idx} className="cloud-cover-no-issues">
-                            <p>{props.cityDict[weatherStation]} - Clear Skies!</p>
+                            <h1>{props.cityDict[weatherStation]}</h1>
+                            <p>Clear Skies!</p>
                         </div>
                     )
                 }
                 else if (cloudConditions.length > 1) {
                     return (
                         <div key={idx} className="cloud-cover-issues">
-                            <p>{props.cityDict[weatherStation]} - {cloudConditions[0].type} at altitude {cloudConditions[0].altitude} and {cloudConditions[1].type} at altitude {cloudConditions[1].altitude}</p>
+                            <h1>{props.cityDict[weatherStation]}</h1>
+                            <p>{cloudConditions[0].type} at altitude {cloudConditions[0].altitude} and {cloudConditions[1].type} at altitude {cloudConditions[1].altitude}</p>
                         </div>
                     )
                 }
                 else {
                     return (
                         <div key={idx} className="cloud-cover-issues">
-                            <p>{props.cityDict[weatherStation]} - {cloudConditions.type} at altitude {cloudConditions.altitude}</p>
+                            <h1>{props.cityDict[weatherStation]}</h1>
+                            <p>{cloudConditions.type} at altitude {cloudConditions.altitude}</p>
                         </div>
                     )
                 }
