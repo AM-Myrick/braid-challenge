@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CloudCover from "./components/CloudCover";
 import Wind from "./components/Wind";
+import Visibility from "./components/Visibility";
 import axios from "axios";
 import './App.css';
 
@@ -36,6 +37,7 @@ class App extends Component {
       <div className="App">
         <CloudCover weatherData={this.state.weather} cityDict={this.state.cities} />
         <Wind weatherData={this.state.weather} cityDict={this.state.cities} />
+        <Visibility weatherData={this.state.weather} cityDict={this.state.cities} />
       </div>
     );
   }

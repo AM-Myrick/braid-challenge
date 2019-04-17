@@ -50,6 +50,8 @@ const Wind = props => {
                             case windDirection > 270 && windDirection < 360:
                                 windDirection = "Northwest";
                                 break;
+                            default:
+                                break;
                         }
                         return (
                             <div key={idx} className="wind-issues">
