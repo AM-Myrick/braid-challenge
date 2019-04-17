@@ -8,7 +8,6 @@ const CloudCover = props => {
             {props.weatherData.map((station, idx) => {
                 let weatherStation = Object.keys(station)[0];
                 let cloudConditions = Object.values(station)[0]["clouds"];
-                console.log(station)
                 if (cloudConditions.length === 0) {
                     return (
                         <div key={idx} className="cloud-cover-no-issues">

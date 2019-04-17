@@ -6,7 +6,6 @@ const Wind = props => {
         props.weatherData ?
         <div className="wind">
             {props.weatherData.map((station, idx) => {
-                let weatherStation = Object.keys(station)[0];
                 let windSpeed = Object.values(station)[0]["wind_speed"]["value"];
                 if (windSpeed === 0) {
                     return (
